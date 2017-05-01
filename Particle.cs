@@ -22,8 +22,7 @@ public class Particle{
 		this.damping = 0.995f;
 		this.mass = mass;
 		this.inverseMass = 1 / mass;
-
-		this.gravityForce = new Vector3 (0, -gravity * mass, 0);
+			this.gravityForce = new Vector3 (0, -gravity * mass, 0);
 		this.forceAccum = Vector3.zero;
 		forceAccum += gravityForce;
 

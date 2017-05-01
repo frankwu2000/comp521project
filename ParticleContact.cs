@@ -46,20 +46,20 @@ public class ParticleContact{
 		float newSepVelocity = -seperateVelocity * restitution;
 
 		//this part is to resolve resting collsion
-//		Vector3 accCausedVelocity = particle[0].acceleration;
-//
-//		if (particle [1] != null) {
-//			accCausedVelocity -= particle [1].acceleration;
-//		}
-//		float accCausedSeperateVelocity = Vector3.Dot(accCausedVelocity,contactNormal) * duration;
-//
-//		if (accCausedSeperateVelocity < 0) {
-//			newSepVelocity += restitution * accCausedSeperateVelocity;
-//
-//			if (newSepVelocity < 0) {
-//				newSepVelocity = 0;
-//			}
-//		}
+		Vector3 accCausedVelocity = particle[0].acceleration;
+
+		if (particle [1] != null) {
+			accCausedVelocity -= particle [1].acceleration;
+		}
+		float accCausedSeperateVelocity = Vector3.Dot(accCausedVelocity,contactNormal) * duration;
+
+		if (accCausedSeperateVelocity < 0) {
+			newSepVelocity += restitution * accCausedSeperateVelocity;
+
+			if (newSepVelocity < 0) {
+				newSepVelocity = 0;
+			}
+		}
 		//end of resting collsion
 
 		float deltaVelocity = newSepVelocity - seperateVelocity;

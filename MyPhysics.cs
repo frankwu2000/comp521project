@@ -48,12 +48,16 @@ public class MyPhysics : MonoBehaviour {
 		if (collision.collider.CompareTag ("Ground")) {
 			ParticleContact pC = new ParticleContact (particle, null, restitution, collision.contacts [0].normal, 0);
 			pC.Resolve (Time.fixedDeltaTime);
+
+		} else if (collision.collider.CompareTag ("wall")) {
+			ParticleContact pC = new ParticleContact (particle, null, restitution, collision.contacts [0].normal, 0);
+			pC.Resolve (Time.fixedDeltaTime);
+			Debug.Log (gameObject.transform.position);
 		} else {
 			Particle other = collision.collider.GetComponent<MyPhysics> ().particle;
 			ParticleContact pC = new ParticleContact (particle, other, restitution, collision.contacts [0].normal, 0);
 			pC.Resolve (Time.fixedDeltaTime);
 		}
-
 	}
 
 
